@@ -155,9 +155,9 @@ impl Image {
     /// an error message.
     pub fn generate<T: AsRef<[u8]>>(&self, barcode: T) -> Result<Vec<u8>> {
         let format = match *self {
-            Image::GIF { .. } => image::GIF,
-            Image::PNG { .. } => image::PNG,
-            Image::JPEG { .. } => image::JPEG,
+            Image::GIF { .. } => image::ImageFormat::Png,
+            Image::PNG { .. } => image::ImageFormat::Png,
+            Image::JPEG { .. } => image::ImageFormat::Jpeg,
             _ => return Err(Error::Generate),
         };
 
